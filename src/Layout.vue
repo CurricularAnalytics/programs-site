@@ -11,7 +11,7 @@
                 <span class="md-title">UA Degree Plan Analytics</span>
             </md-app-toolbar>
 
-            <md-app-drawer :md-active.sync="menuVisible">
+            <md-app-drawer :md-active.sync="menuVisible" class="md-app-drawer">
                 <md-toolbar class="md-transparent" md-elevation="0"
                     ><h2>Colleges</h2></md-toolbar
                 >
@@ -19,9 +19,8 @@
             </md-app-drawer>
 
             <md-app-content class="md-app-content">
-                <md-content
-                    ><h1>{{ collegeName }}</h1>
-                    <degree-plan-viz :degreePlan="degreePlan" />
+                <md-content>
+                    <router-view></router-view>
                 </md-content>
             </md-app-content>
         </md-app>
@@ -29,34 +28,14 @@
 </template>
 
 <script>
-import CollegeList from "./CollegeList.vue";
-import DegreePlanViz from "./DegreePlanViz.vue";
+import CollegeList from "./components/CollegeList.vue";
 
 export default {
-    components: { DegreePlanViz, CollegeList },
+    components: { CollegeList },
     name: "Layout",
     data: () => ({
         menuVisible: false,
-        degreePlan: {},
     }),
-    created() {
-        this.getDegreePlan();
-    },
-    computed: {
-        collegeName() {
-            return "College of Science";
-        },
-    },
-    methods: {
-        async getDegreePlan() {
-            try {
-                const res = await this.$caInstance.get("/");
-                this.degreePlan = res.data;
-            } catch (error) {
-                console.log(error.response);
-            }
-        },
-    },
 };
 </script>
 
@@ -70,7 +49,6 @@ export default {
 .md-title {
     font-weight: 800 !important;
     font-size: 22px;
-    background-color: "black !important";
 }
 
 .md-content {
@@ -78,7 +56,9 @@ export default {
     padding-top: 4px;
     padding-bottom: 0px;
 }
-
+.md-app-drawer {
+    width: fit-content;
+}
 .md-app {
     height: 100%;
 }

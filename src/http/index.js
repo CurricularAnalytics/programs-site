@@ -1,10 +1,9 @@
 import axios from "axios";
 
 export const blackbriarInstance = axios.create({
-    baseURL:
-        "https://bb-arizona-assets.s3-us-west-2.amazonaws.com/json/universities/",
+    baseURL: process.env.VUE_APP_BB_URL,
 });
 
 export const caInstance = axios.create({
-    baseURL: "http://localhost:8000/",
+    baseURL: process.env.VUE_APP_CA_URL,
 });

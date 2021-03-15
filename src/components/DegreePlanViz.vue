@@ -1,8 +1,8 @@
 <template>
     <iframe
         id="curriculum"
-        src="//curricula-api-embed.damoursystems.com/"
-        v-on:load="onLoad"
+        :src="iframeUrl"
+        @load="onLoad"
         class="curriculum-visualization"
     />
 </template>
@@ -11,6 +11,7 @@
 export default {
     name: "DegreePlanViz",
     props: ["degreePlan"],
+    data: () => ({ iframeUrl: process.env.VUE_APP_IFRAME_URL }),
     mounted() {
         window.addEventListener("message", this.reveiveMessage);
     },
