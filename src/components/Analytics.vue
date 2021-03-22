@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>{{ collegeName }}</h1>
-        <degree-plan-viz :degreePlan="degreePlan" />
+        <degree-plan-viz :degreePlan="degreePlan" :options="vizOptions" />
     </div>
 </template>
 
@@ -28,6 +28,9 @@ export default {
         period() {
             return this.$route.params.period;
         },
+        vizOptions() {
+            return {};
+        },
     },
     methods: {
         async fetchDegreePlan() {
@@ -39,17 +42,12 @@ export default {
                 console.log(error.response);
             }
         },
-        // async fetchBBDegreePlan() {
-        //     try {
-        //         // fetch degree plan from blackbriar S3
-        //         const res = await this.$blackbriarInstance.get(
-        //             `university-of-arizona/academic_periods/${this.period}/university_layouts/${this.programId}.json`
-        //         );
-        //         this.$store.dispatch("setDegreePlan", res.data);
-        //     } catch (error) {
-        //         console.log(error.response);
-        //     }
-        // },
     },
 };
 </script>
+
+<style lang="scss" scoped>
+h1 {
+    font-size: 30px !important;
+}
+</style>

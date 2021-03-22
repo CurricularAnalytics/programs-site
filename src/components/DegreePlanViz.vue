@@ -10,7 +10,7 @@
 <script>
 export default {
     name: "DegreePlanViz",
-    props: ["degreePlan"],
+    props: ["degreePlan", "options"],
     data: () => ({ iframeUrl: process.env.VUE_APP_IFRAME_URL }),
     mounted() {
         window.addEventListener("message", this.reveiveMessage);
@@ -20,14 +20,19 @@ export default {
     },
     methods: {
         onLoad(e) {
-            e.currentTarget.contentWindow.postMessage(this.degreePlan, "*");
+            const data = { options: this.options, curriculum: this.degreePlan };
+            e.currentTarget.contentWindow.postMessage(data, "*");
         },
         reveiveMessage(e) {
-            const height = e.data.height;
+            const { height, curriculum } = e.data;
             const curriculumIframe = document.getElementById("curriculum");
 
             if (height !== undefined) {
                 curriculumIframe.style.height = 100 + height + "px";
+            }
+
+            if (curriculum !== undefined) {
+                console.log(curriculum);
             }
         },
     },

@@ -1,0 +1,334 @@
+{
+    "terms": [
+        {
+            "id": 1,
+            "name": "Term 1",
+            "items": [
+                {
+                    "id": 73818,
+                    "name": "ENGL 101 - First-Year Composition",
+                    "credit": 3,
+                    "requisites": []
+                },
+                {
+                    "id": 75147,
+                    "name": "CSC 110 - Introduction to Computer Programming I",
+                    "credits": 4,
+                    "requisites": []
+                },
+                {
+                    "id": 69962,
+                    "name": "MATH 120R - Calculus Preparation",
+                    "credits": 4,
+                    "requisites": []
+                },
+                {
+                    "id": 19885,
+                    "name": "First Semester Second Language",
+                    "credits": 4,
+                    "requisites": []
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Term 2",
+            "items": [
+                {
+                    "id": 78479,
+                    "name": "ENGL 102 - First-Year Composition",
+                    "credit": 3,
+                    "requisites": [
+                        {
+                            "source_id": 73818,
+                            "target_id": 78479,
+                            "type": "prereq"
+                        }
+                    ]
+                },
+                {
+                    "id": 19886,
+                    "name": "Second Semester Second Language",
+                    "credits": 4,
+                    "requisites": []
+                },
+                {
+                    "id": 69963,
+                    "name": "MATH 122A - Functions for Calculus",
+                    "credits": 1,
+                    "requisites": [
+                        {
+                            "source_id": 69962,
+                            "target_id": 69963,
+                            "type": "prereq"
+                        }
+                    ]
+                },
+                {
+                    "id": 70044,
+                    "name": "MATH 122B - First-Semester Calculus",
+                    "credits": 4,
+                    "requisites": [
+                        {
+                            "source_id": 69963,
+                            "target_id": 70044,
+                            "type": "coreq"
+                        }
+                    ]
+                },
+                {
+                    "id": 75186,
+                    "name": "CSC 120 - Introduction to Computer Programming II",
+                    "credits": 4,
+                    "requisites": [
+                        {
+                            "source_id": 75147,
+                            "target_id": 75186,
+                            "type": "prereq"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Term 3",
+            "items": [
+                {
+                    "id": 75150,
+                    "name": "CSC 210 - Software Development",
+                    "credits": 4,
+                    "requisites": [
+                        {
+                            "source_id": 75186,
+                            "target_id": 75150,
+                            "type": "prereq"
+                        }
+                    ]
+                },
+                {
+                    "id": 24947,
+                    "name": "MATH 129 or MATH 313",
+                    "credits": 3,
+                    "requisites": []
+                },
+                {
+                    "id": 19893,
+                    "name": "Tier I Individuals & Societies/150s",
+                    "credits": 3,
+                    "requisites": []
+                },
+                {
+                    "id": 19894,
+                    "name": "Tier I Individuals & Societies/150s",
+                    "credits": 3,
+                    "requisites": []
+                },
+                {
+                    "id": 24948,
+                    "name": "CSC 245 or MATH 243 or MATH 323",
+                    "credits": 3,
+                    "requisites": []
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Term 4",
+            "items": [
+                {
+                    "id": 75152,
+                    "name": "CSC 252 - Computer Organization",
+                    "credits": 3,
+                    "requisites": [
+                        {
+                            "source_id": 75150,
+                            "target_id": 75152,
+                            "type": "prereq"
+                        }
+                    ]
+                },
+                {
+                    "id": 19897,
+                    "name": "Supporting Science",
+                    "credits": 4,
+                    "requisites": []
+                },
+                {
+                    "id": 75161,
+                    "name": "CSC 352 - Systems Programming and Unix",
+                    "credits": 3,
+                    "requisites": [
+                        {
+                            "source_id": 75150,
+                            "target_id": 75161,
+                            "type": "prereq"
+                        }
+                    ]
+                },
+                {
+                    "id": 19899,
+                    "name": "Tier I Traditions & Cultures/160s",
+                    "credits": 3,
+                    "requisites": []
+                },
+                {
+                    "id": 19900,
+                    "name": "Tier I Traditions & Cultures/160s",
+                    "credits": 3,
+                    "requisites": []
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Term 5",
+            "items": [
+                {
+                    "id": 75156,
+                    "name": "CSC 335 - Object-Oriented Programming and Design",
+                    "credits": 3,
+                    "requisites": [
+                        {
+                            "source_id": 75150,
+                            "target_id": 75156,
+                            "type": "prereq"
+                        }
+                    ]
+                },
+                {
+                    "id": 75158,
+                    "name": "CSC 345 - Analysis of Discrete Structures",
+                    "credits": 3,
+                    "requisites": [
+                        {
+                            "source_id": 75150,
+                            "target_id": 75158,
+                            "type": "prereq"
+                        }
+                    ]
+                },
+                {
+                    "id": 19903,
+                    "name": "Supporting Science",
+                    "credits": 4,
+                    "requisites": []
+                },
+                {
+                    "id": 19904,
+                    "name": "Electives",
+                    "credits": 3,
+                    "requisites": []
+                },
+                {
+                    "id": 19905,
+                    "name": "Tier II Arts",
+                    "credits": 3,
+                    "requisites": []
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "name": "Term 6",
+            "items": [
+                {
+                    "id": 19906,
+                    "name": "Paradigms Area Elective",
+                    "credits": 3,
+                    "requisites": []
+                },
+                {
+                    "id": 19907,
+                    "name": "CSC 400 Level Electives",
+                    "credits": 3,
+                    "requisites": []
+                },
+                {
+                    "id": 19908,
+                    "name": "Tier II Individual & Societies",
+                    "credits": 3,
+                    "requisites": []
+                },
+                {
+                    "id": 19909,
+                    "name": "Upper Division Elective",
+                    "credits": 3,
+                    "requisites": []
+                },
+                {
+                    "id": 19910,
+                    "name": "Tier II Humanities",
+                    "credits": 3,
+                    "requisites": []
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "name": "Term 7",
+            "items": [
+                {
+                    "id": 19911,
+                    "name": "Theory and Writing Area Elective",
+                    "credits": 3,
+                    "requisites": []
+                },
+                {
+                    "id": 19912,
+                    "name": "CSC 400 Level Electives",
+                    "credits": 3,
+                    "requisites": []
+                },
+                {
+                    "id": 19913,
+                    "name": "Electives",
+                    "credits": 3,
+                    "requisites": []
+                },
+                {
+                    "id": 19914,
+                    "name": "Upper Division Elective",
+                    "credits": 3,
+                    "requisites": []
+                },
+                {
+                    "id": 19915,
+                    "name": "Upper Division Elective",
+                    "credits": 3,
+                    "requisites": []
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "name": "Term 8",
+            "items": [
+                {
+                    "id": 19916,
+                    "name": "System Area Elective",
+                    "credits": 3,
+                    "requisites": []
+                },
+                {
+                    "id": 19917,
+                    "name": "Additional Elective",
+                    "credits": 3,
+                    "requisites": []
+                },
+                {
+                    "id": 19918,
+                    "name": "Additional Elective II",
+                    "credits": 3,
+                    "requisites": []
+                },
+                {
+                    "id": 19919,
+                    "name": "CSC 300/400 Level Course",
+                    "credits": 3,
+                    "requisites": []
+                }
+            ]
+        }
+    ]
+}
