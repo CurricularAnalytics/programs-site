@@ -1,7 +1,7 @@
 <template>
     <md-list>
         <md-list-item v-for="program in programs" :key="program.layoutId">
-            <router-link
+            <!-- <router-link
                 :to="{
                     name: 'root',
                     params: {
@@ -12,7 +12,10 @@
                 }"
                 class="md-list-item-text"
                 >{{ program.fullName }}</router-link
-            >
+            > -->
+            <button @click="handleOnClick(program)">
+                {{ program.fullName }}
+            </button>
         </md-list-item>
     </md-list>
 </template>
@@ -21,5 +24,14 @@
 export default {
     name: "ProgramList",
     props: ["programs"],
+    methods: {
+        handleOnClick(program) {
+            // console.log(program);
+            this.$store.commit("setPeriod", program.academicPeriod.id);
+            this.$store.commit("setPlanId", program.layoutId);
+            this.$store.commit("setProgramName", program.fullName);
+            this.$store.dispatch("setDegreePlan");
+        },
+    },
 };
 </script>

@@ -20,7 +20,8 @@
 
             <md-app-content class="md-app-content">
                 <md-content>
-                    <router-view></router-view>
+                    <!-- <router-view></router-view> -->
+                    <analytics />
                 </md-content>
             </md-app-content>
         </md-app>
@@ -28,10 +29,11 @@
 </template>
 
 <script>
+import Analytics from "./components/Analytics.vue";
 import CollegeList from "./components/CollegeList.vue";
 
 export default {
-    components: { CollegeList },
+    components: { CollegeList, Analytics },
     name: "Layout",
     data: () => ({
         menuVisible: false,

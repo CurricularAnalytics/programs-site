@@ -1,0 +1,454 @@
+<!doctype html>
+
+<head>
+  <style>
+    #curriculum {
+      border: none;
+      width: 100%;
+      height: 1000px;
+    }
+  </style>
+</head>
+
+<body>
+  <iframe id="curriculum" src="//curricula-api-embed.damoursystems.com/"></iframe>
+
+  <script>
+    var data = {
+      options: {},
+
+      // Curriculum data
+      curriculum: {
+    "terms": [
+        {
+            "id": 1,
+            "name": "Term 1",
+            "items": [
+                {
+                    "id": 1964733,
+                    "name": "MAT 128 - Calculus A - QR",
+                    "credits": 3,
+                    "requisites": []
+                },
+                {
+                    "id": 1966412,
+                    "name": "INF 120 - Elementary Programming - NS",
+                    "credits": 3,
+                    "requisites": [
+                        {
+                            "source_id": 1978363,
+                            "target_id": 1966412,
+                            "type": "prereq"
+                        }
+                    ]
+                },
+                {
+                    "id": 13237,
+                    "name": "FOK: Written Communication I",
+                    "credits": 3,
+                    "requisites": []
+                },
+                {
+                    "id": 1966455,
+                    "name": "INF 282 - Introduction to Databases",
+                    "credits": 3,
+                    "requisites": []
+                },
+                {
+                    "id": 13238,
+                    "name": "FOK: Culture and Creativity",
+                    "credits": 3,
+                    "requisites": []
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Term 2",
+            "items": [
+                {
+                    "id": 1964743,
+                    "name": "MAT 227 - Calculus B",
+                    "credits": 3,
+                    "requisites": [
+                        {
+                            "source_id": 1964733,
+                            "target_id": 1964743,
+                            "type": "prereq"
+                        }
+                    ]
+                },
+                {
+                    "id": 1966336,
+                    "name": "CSC 260 - Object-Oriented Programming I",
+                    "credits": 3,
+                    "requisites": [
+                        {
+                            "source_id": 1966412,
+                            "target_id": 1966336,
+                            "type": "prereq"
+                        }
+                    ]
+                },
+                {
+                    "id": 1966338,
+                    "name": "CSC 260L - Object-Oriented Programming Lab",
+                    "credits": 1,
+                    "requisites": [
+                        {
+                            "source_id": 1966336,
+                            "target_id": 1966338,
+                            "type": "strict-creq"
+                        }
+                    ]
+                },
+                {
+                    "id": 13242,
+                    "name": "FOK: Oral Communication I",
+                    "credits": 3,
+                    "requisites": []
+                },
+                {
+                    "id": 13243,
+                    "name": "FOK: CULTURAL PLURALISM",
+                    "credits": 3,
+                    "requisites": []
+                },
+                {
+                    "id": 13244,
+                    "name": "FOK: Culture and Creativity",
+                    "credits": 3,
+                    "requisites": []
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Term 3",
+            "items": [
+                {
+                    "id": 1966347,
+                    "name": "CSC 360 - Object-Oriented Programming II",
+                    "credits": 3,
+                    "requisites": [
+                        {
+                            "source_id": 1966336,
+                            "target_id": 1966347,
+                            "type": "prereq"
+                        }
+                    ]
+                },
+                {
+                    "id": 1966414,
+                    "name": "INF 284 - Introduction to Computer Networks",
+                    "credits": 3,
+                    "requisites": [
+                        {
+                            "source_id": 1966412,
+                            "target_id": 1966414,
+                            "type": "prereq"
+                        }
+                    ]
+                },
+                {
+                    "id": 1964745,
+                    "name": "MAT 228 - Calculus C",
+                    "credits": 3,
+                    "requisites": [
+                        {
+                            "source_id": 1964743,
+                            "target_id": 1964745,
+                            "type": "prereq"
+                        }
+                    ]
+                },
+                {
+                    "id": 13248,
+                    "name": "FOK: Written Communication II",
+                    "credits": 3,
+                    "requisites": []
+                },
+                {
+                    "id": 13249,
+                    "name": "FOK: INDIVIDUAL & SOCIETY",
+                    "credits": 3,
+                    "requisites": []
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Term 4",
+            "items": [
+                {
+                    "id": 1966351,
+                    "name": "CSC 364 - Data Structures and Algorithms",
+                    "credits": 3,
+                    "requisites": [
+                        {
+                            "source_id": 1966347,
+                            "target_id": 1966351,
+                            "type": "prereq"
+                        }
+                    ]
+                },
+                {
+                    "id": 1966415,
+                    "name": "INF 286 - Introduction to Web Development",
+                    "credits": 3,
+                    "requisites": [
+                        {
+                            "source_id": 1966412,
+                            "target_id": 1966415,
+                            "type": "prereq"
+                        }
+                    ]
+                },
+                {
+                    "id": 1964761,
+                    "name": "MAT 385 - Discrete Mathematics",
+                    "credits": 3,
+                    "requisites": [
+                        {
+                            "source_id": 1964745,
+                            "target_id": 1964761,
+                            "type": "prereq"
+                        }
+                    ]
+                },
+                {
+                    "id": 13253,
+                    "name": "FOK: INDIVIDUAL & SOCIETY",
+                    "credits": 3,
+                    "requisites": []
+                },
+                {
+                    "id": 24309,
+                    "name": "FOK: Natural Sciences ",
+                    "credits": 4,
+                    "requisites": []
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Term 5",
+            "items": [
+                {
+                    "id": 1966349,
+                    "name": "CSC 362 - Computer Systems",
+                    "credits": 3,
+                    "requisites": [
+                        {
+                            "source_id": 1966347,
+                            "target_id": 1966349,
+                            "type": "prereq"
+                        }
+                    ]
+                },
+                {
+                    "id": 1964780,
+                    "name": "STA 250 - Probability and Statistics I",
+                    "credits": 3,
+                    "requisites": [
+                        {
+                            "source_id": 1964735,
+                            "target_id": 1964780,
+                            "type": "prereq"
+                        },
+                        {
+                            "source_id": 1964743,
+                            "target_id": 1964780,
+                            "type": "strict-creq"
+                        }
+                    ]
+                },
+                {
+                    "id": 1966373,
+                    "name": "CSC 485 - Theory of Computation",
+                    "credits": 3,
+                    "requisites": [
+                        {
+                            "source_id": 1964761,
+                            "target_id": 1966373,
+                            "type": "prereq"
+                        }
+                    ]
+                },
+                {
+                    "id": 13258,
+                    "name": "Minor",
+                    "credits": 3,
+                    "requisites": []
+                },
+                { "id": 13259, "name": "Minor", "credits": 3, "requisites": [] }
+            ]
+        },
+        {
+            "id": 6,
+            "name": "Term 6",
+            "items": [
+                {
+                    "id": 1966358,
+                    "name": "CSC 402 - Advanced Programming Methods",
+                    "credits": 3,
+                    "requisites": [
+                        {
+                            "source_id": 1966349,
+                            "target_id": 1966358,
+                            "type": "prereq"
+                        },
+                        {
+                            "source_id": 1966351,
+                            "target_id": 1966358,
+                            "type": "prereq"
+                        }
+                    ]
+                },
+                {
+                    "id": 1966367,
+                    "name": "CSC 460 - Operating Systems",
+                    "credits": 3,
+                    "requisites": [
+                        {
+                            "source_id": 1966349,
+                            "target_id": 1966367,
+                            "type": "prereq"
+                        },
+                        {
+                            "source_id": 1966351,
+                            "target_id": 1966367,
+                            "type": "prereq"
+                        }
+                    ]
+                },
+                {
+                    "id": 13262,
+                    "name": "CSC elective 300 level or above",
+                    "credits": 3,
+                    "requisites": []
+                },
+                {
+                    "id": 13263,
+                    "name": "Minor or elective 300 level or above",
+                    "credits": 3,
+                    "requisites": []
+                },
+                {
+                    "id": 13264,
+                    "name": "Minor or elective",
+                    "credits": 3,
+                    "requisites": []
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "name": "Term 7",
+            "items": [
+                {
+                    "id": 1966363,
+                    "name": "CSC 439 - Software Testing and Maintenance",
+                    "credits": 3,
+                    "requisites": [
+                        {
+                            "source_id": 1966351,
+                            "target_id": 1966363,
+                            "type": "prereq"
+                        }
+                    ]
+                },
+                {
+                    "id": 13266,
+                    "name": "CSC elective 400 level",
+                    "credits": 3,
+                    "requisites": []
+                },
+                {
+                    "id": 13267,
+                    "name": "Minor or elective 300 level or above",
+                    "credits": 3,
+                    "requisites": []
+                },
+                {
+                    "id": 13268,
+                    "name": "Minor or elective",
+                    "credits": 3,
+                    "requisites": []
+                },
+                {
+                    "id": 13269,
+                    "name": "GLOBAL VIEW POINTS",
+                    "credits": 3,
+                    "requisites": []
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "name": "Term 8",
+            "items": [
+                {
+                    "id": 1966365,
+                    "name": "CSC 440 - Software Engineering",
+                    "credits": 3,
+                    "requisites": [
+                        {
+                            "source_id": 1966358,
+                            "target_id": 1966365,
+                            "type": "prereq"
+                        },
+                        {
+                            "source_id": 1966363,
+                            "target_id": 1966365,
+                            "type": "prereq"
+                        }
+                    ]
+                },
+                {
+                    "id": 1978366,
+                    "name": "CSC 491 - Comprehensive Examination ",
+                    "credits": 0,
+                    "requisites": []
+                },
+                {
+                    "id": 13272,
+                    "name": "CSC elective 400 level",
+                    "credits": 3,
+                    "requisites": []
+                },
+                {
+                    "id": 13273,
+                    "name": "Minor or elective",
+                    "credits": 3,
+                    "requisites": []
+                },
+                {
+                    "id": 13274,
+                    "name": "Minor or elective",
+                    "credits": 2,
+                    "requisites": []
+                },
+                {
+                    "id": 13275,
+                    "name": "Minor or elective 300 level or above",
+                    "credits": 3,
+                    "requisites": []
+                }
+            ]
+        }
+    ]
+}
+
+    }
+
+    // Get curriculum frame by id
+    curriculumFrame = document.getElementById('curriculum')
+
+    // Wait for frame to load, then post curriculum data to it
+    curriculumFrame.addEventListener('load', function () {
+      curriculumFrame.contentWindow.postMessage(data, '*')
+    })
+  </script>
+</body>
+</html>

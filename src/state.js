@@ -1,13 +1,35 @@
 import { maxBy } from "lodash";
-import { blackbriarInstance } from "./http";
+import { blackbriarInstance, caInstance } from "./http";
 
 export default {
     state: {
         universityLayouts: [],
+        degreePlan: {},
+        programName: "Accounting",
+        period: "108",
+        planId: "7270",
+        bbUrl: "bb-arizona-assets.s3-us-west-2.amazonaws.com",
+        university: "university-of-arizona",
+        loading: true,
     },
     mutations: {
         setUniversityLayouts(state, payload) {
             state.universityLayouts = payload;
+        },
+        setDegreePlan(state, payload) {
+            state.degreePlan = payload;
+        },
+        setPeriod(state, payload) {
+            state.period = payload;
+        },
+        setPlanId(state, payload) {
+            state.planId = payload;
+        },
+        setProgramName(state, payload) {
+            state.programName = payload;
+        },
+        setLoading(state, payload) {
+            state.loading = payload;
         },
     },
     actions: {
@@ -21,8 +43,23 @@ export default {
                 console.log(error.response);
             }
         },
+        async setDegreePlan(state) {
+            try {
+                state.commit("setLoading", true);
+                const { bbUrl, university, period, planId } = state.state;
+                const url = `/degree_plan?url=${bbUrl}&university=${university}&period=${period}&id=${planId}`;
+                const res = await caInstance.get(url);
+                state.commit("setDegreePlan", res.data);
+                state.commit("setLoading", false);
+            } catch (error) {
+                console.log(error.response);
+            }
+        },
     },
     getters: {
+        degreePlan(state) {
+            return state.degreePlan;
+        },
         colleges(state) {
             const colleges = {};
             state.universityLayouts.forEach(

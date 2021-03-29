@@ -1,6 +1,9 @@
-const { default: axios } = require("axios");
+const axios = require("axios");
+const AWS = require("aws-sdk");
 const fs = require("fs");
-// const program = require("./sample.json");
+
+const aws_config = require("./config.json");
+AWS.config.loadFromPath("./config.json");
 
 const COURSE_REQUIREMENT = "CourseRequirement";
 const DEGREE_REQUIREMENT = "DegreeRequirement";
@@ -61,6 +64,8 @@ async function convert({ period, layout_id }) {
         const res = await axios.get(layout_url);
         // console.log(res.data);
         const program = res.data;
+
+        // const program = require("./nku_cs_s3.json");
 
         if (program.has_plans) {
             const course_set = new Set();
@@ -132,6 +137,8 @@ async function convert({ period, layout_id }) {
             });
 
             const data = { terms };
+            // upload(`${period}-${layout_id}.json`, data);
+            // upload(`curriculum.json`, data);
             fs.writeFileSync(
                 `${period}-${layout_id}.json`,
                 JSON.stringify(data)
@@ -141,6 +148,25 @@ async function convert({ period, layout_id }) {
     } catch (error) {
         console.log(error.response);
     }
+}
+
+function upload(file_name, data) {
+    const s3 = new AWS.S3();
+    s3.putObject(
+        {
+            Bucket: aws_config["s3-bucket"],
+            Key: file_name,
+            Body: JSON.stringify(data),
+            ContentType: "application/json",
+        },
+        function(error, data) {
+            if (error) {
+                console.log("ERROR:", error);
+            } else {
+                console.log("Success, ETag: ", data.ETag);
+            }
+        }
+    );
 }
 
 function OR(course_set, operands) {

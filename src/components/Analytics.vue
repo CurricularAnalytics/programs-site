@@ -1,7 +1,16 @@
 <template>
     <div>
-        <h1>{{ collegeName }}</h1>
-        <degree-plan-viz :degreePlan="degreePlan" :options="vizOptions" />
+        <h1>{{ programName }}</h1>
+        <md-progress-bar
+            v-show="loading"
+            md-mode="indeterminate"
+        ></md-progress-bar>
+        <degree-plan-viz
+            v-if="hasDegreePlan"
+            :degreePlan="!loading && degreePlan"
+            :options="vizOptions"
+            :key="key"
+        />
     </div>
 </template>
 
@@ -11,36 +20,32 @@ import DegreePlanViz from "./DegreePlanViz.vue";
 export default {
     components: { DegreePlanViz },
     name: "Analytics",
-    data: () => ({
-        menuVisible: false,
-        degreePlan: {},
-    }),
-    created() {
-        this.fetchDegreePlan();
+    data: () => ({ key: 0 }),
+    mounted() {
+        this.$store.dispatch("setDegreePlan");
     },
     computed: {
-        collegeName() {
-            return this.$route.params.programName;
+        degreePlan() {
+            this.forceRerender();
+            console.log(this.$store.state.loading);
+            return this.$store.getters.degreePlan;
         },
-        programId() {
-            return this.$route.params.id;
-        },
-        period() {
-            return this.$route.params.period;
+        programName() {
+            return this.$store.state.programName;
         },
         vizOptions() {
             return {};
         },
+        hasDegreePlan() {
+            return Object.keys(this.degreePlan).length > 0;
+        },
+        loading() {
+            return this.$store.state.loading;
+        },
     },
     methods: {
-        async fetchDegreePlan() {
-            try {
-                // fetch mapped degree plan from the API
-                const res = await this.$caInstance.get("/curriculum.json");
-                this.degreePlan = res.data;
-            } catch (error) {
-                console.log(error.response);
-            }
+        forceRerender() {
+            this.key += 1;
         },
     },
 };
@@ -48,6 +53,7 @@ export default {
 
 <style lang="scss" scoped>
 h1 {
-    font-size: 30px !important;
+    font-size: 28px !important;
+    line-height: 1;
 }
 </style>

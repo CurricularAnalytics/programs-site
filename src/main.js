@@ -8,13 +8,13 @@ import {
     MdToolbar,
     MdDrawer,
     MdIcon,
+    MdProgress,
 } from "vue-material/dist/components";
 import "vue-material/dist/vue-material.min.css";
 import App from "./App.vue";
 import state from "./state";
 import { blackbriarInstance, caInstance } from "./http";
 import router from "./router";
-
 require("dotenv").config();
 
 Vue.config.productionTip = false;
@@ -31,6 +31,7 @@ Vue.use(MdButton);
 Vue.use(MdToolbar);
 Vue.use(MdDrawer);
 Vue.use(MdIcon);
+Vue.use(MdProgress);
 
 // vuex store
 Vue.use(Vuex);
