@@ -1,10 +1,19 @@
 <template>
-    <iframe
-        id="curriculum"
-        :src="iframeUrl"
-        @load="onLoad"
-        class="curriculum-visualization"
-    />
+    <div>
+        <p>
+            Curricular Complexity:
+            <span v-show="complexity != -1">{{ complexity }}</span>
+        </p>
+        <p>
+            Credit Hours: <span v-show="complexity != -1">{{ credits }}</span>
+        </p>
+        <iframe
+            id="curriculum"
+            :src="iframeUrl"
+            @load="onLoad"
+            class="curriculum-visualization"
+        />
+    </div>
 </template>
 
 <script>
@@ -13,6 +22,8 @@ export default {
     props: ["degreePlan", "options"],
     data: () => ({
         iframeUrl: process.env.VUE_APP_IFRAME_URL,
+        complexity: -1,
+        credits: -1,
     }),
     mounted() {
         window.addEventListener("message", this.reveiveMessage);
@@ -22,7 +33,6 @@ export default {
     },
     computed: {
         payload() {
-            console.log("sdsfddsfs");
             return {
                 options: this.options,
                 curriculum: this.degreePlan,
@@ -44,7 +54,9 @@ export default {
             }
 
             if (curriculum !== undefined) {
-                console.log(curriculum);
+                const { complexity, credits } = curriculum;
+                this.complexity = complexity;
+                this.credits = credits;
             }
         },
     },
@@ -55,5 +67,10 @@ export default {
 .curriculum-visualization {
     width: 100%;
     border: none;
+}
+
+p {
+    font-size: 20px;
+    line-height: 0.6;
 }
 </style>

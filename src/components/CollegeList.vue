@@ -15,7 +15,6 @@ export default {
     components: { ProgramList },
     computed: {
         colleges() {
-            console.log(this.$store.getters.colleges);
             return this.$store.getters.colleges;
         },
     },

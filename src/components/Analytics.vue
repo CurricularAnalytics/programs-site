@@ -7,6 +7,7 @@
         ></md-progress-bar>
         <degree-plan-viz
             v-if="hasDegreePlan"
+            v-show="!loading"
             :degreePlan="!loading && degreePlan"
             :options="vizOptions"
             :key="key"
@@ -27,7 +28,6 @@ export default {
     computed: {
         degreePlan() {
             this.forceRerender();
-            console.log(this.$store.state.loading);
             return this.$store.getters.degreePlan;
         },
         programName() {
