@@ -30,6 +30,8 @@ export default {
             this.$store.commit("setPeriod", program.academicPeriod.id);
             this.$store.commit("setPlanId", program.layoutId);
             this.$store.commit("setProgramName", program.fullName);
+            this.$store.commit("setCip", program.cip);
+            this.$store.commit("setDegreeType", program.degreeType);
             this.$store.dispatch("setDegreePlan");
         },
     },
