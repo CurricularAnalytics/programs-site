@@ -1,5 +1,7 @@
 # analytics
 
+This is the code for http://uaanalytics.azdegreeplans.com
+
 ## Project setup
 ```
 npm install
